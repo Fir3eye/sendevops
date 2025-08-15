@@ -11,7 +11,6 @@ export default function Header() {
         <Link to="/services" className="hover:underline text-lg font-medium">Services</Link>
         <Link to="/projects" className="hover:underline text-lg font-medium">Projects</Link>
         <Link to="/about" className="hover:underline text-lg font-medium">About</Link>
-        <a href="#contact" className="hover:underline text-lg font-medium">Contact</a>
       </nav>
     </header>
   );

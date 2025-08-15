@@ -8,8 +8,9 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Experience from './components/Experience';
 import Contact from './components/Contact';
+import Experience from './components/Experience';
+
 
 export default function App() {
   return (
@@ -22,20 +23,21 @@ export default function App() {
             element={
               <>
                 <Hero />
+                <Experience/>
                 <Partners />
-                <Experience /> {/* Added Experience section */}
                 <Services />
-                <Projects />
                 <Footer />
               </>
             }
           />
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />  
-          <Route path="/services" element={<Services />} />  {/* Lowercase */}
-          <Route path="/projects" element={<Projects />} /> {/* Lowercase */}
-          <Route path="/experience" element={<Experience />} /> {/* Optional page route */}
+          <Route path="/Services" element={<Services />} /> 
+          <Route path="/Projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/experience" element={<Experience />} /> {/* Optional page route */}
+
+
         </Routes>
       </div>
     </Router>
