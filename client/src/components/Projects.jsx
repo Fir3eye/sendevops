@@ -28,6 +28,33 @@ const projects = [
     github: 'https://github.com/Fir3eye/sendevops.git',
     youtube: 'https://www.youtube.com/watch?v=your-video3'
   },
+  {
+    id: 4,
+    title: 'CI/CD Pipeline with Jenkins & Docker',
+    desc: 'Automate your deployments using Jenkins and Docker. Hands-on pipeline setup and integration.',
+    img: 'https://i.ytimg.com/vi/9nzeEmNAWVk/maxresdefault.jpg',
+    tools: ['Jenkins', 'Docker', 'Git'],
+    github: 'https://github.com/Fir3eye/jenkins-docker-pipeline',
+    youtube: 'https://www.youtube.com/watch?v=your-video4'
+  },
+  {
+    id: 5,
+    title: 'Monitoring with Prometheus & Grafana',
+    desc: 'Learn how to monitor applications and infrastructure using Prometheus and Grafana dashboards.',
+    img: 'https://i.ytimg.com/vi/9nzeEmNAWVk/maxresdefault.jpg',
+    tools: ['Prometheus', 'Grafana', 'Kubernetes'],
+    github: 'https://github.com/Fir3eye/prometheus-grafana-monitoring',
+    youtube: 'https://www.youtube.com/watch?v=your-video5'
+  },
+  {
+    id: 6,
+    title: 'Infrastructure as Code with Terraform',
+    desc: 'Provision cloud resources using Terraform scripts. Includes AWS and Azure examples.',
+    img: 'https://i.ytimg.com/vi/9nzeEmNAWVk/maxresdefault.jpg',
+    tools: ['Terraform', 'AWS', 'Azure'],
+    github: 'https://github.com/Fir3eye/terraform-iac',
+    youtube: 'https://www.youtube.com/watch?v=your-video6'
+  },
 ];
 
 export default function Projects() {

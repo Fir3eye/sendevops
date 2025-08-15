@@ -1,19 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './hero.css'; // We'll add background animation here
 
 export default function Hero() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-    alert('Message sent!');
-    setFormData({ name: '', email: '', message: '' });
-  };
-
   // Scroll to "Our Work" section
   const handleLatestProjectsClick = () => {
     const workSection = document.getElementById('work');
@@ -33,9 +21,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="flex flex-col md:flex-row items-center justify-between p-8 min-h-[80vh] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700"
+      className="relative flex flex-col md:flex-row items-center justify-between p-8 min-h-[80vh] animated-bg"
     >
-      <div className="md:w-2/3 space-y-6 text-white">
+      <div className="md:w-2/3 space-y-6 text-white z-10">
         <h2 className="text-5xl font-extrabold mb-2">
           Welcome to <span className="text-yellow-400">SenDevOps</span>
         </h2>
@@ -82,7 +70,6 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2 rounded-full bg-blue-500 hover:bg-blue-700 text-white font-semibold shadow-lg transition"
-            title="GitHub"
           >
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-6 h-6" />
             View Code
@@ -92,7 +79,6 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2 rounded-full bg-red-600 hover:bg-red-800 text-white font-semibold shadow-lg transition"
-            title="YouTube"
           >
             <img src="https://static.vecteezy.com/system/resources/previews/018/930/575/original/youtube-logo-youtube-icon-transparent-free-png.png" alt="YouTube" className="w-6 h-6" />
             YouTube
@@ -102,42 +88,12 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2 rounded-full bg-[#0077b5] hover:bg-blue-900 text-white font-semibold shadow-lg transition"
-            title="LinkedIn"
           >
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-6 h-6" />
             LinkedIn
           </a>
         </div>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className="md:w-1/3 bg-white shadow-2xl p-8 rounded-xl mt-8 md:mt-0"
-      >
-        <h3 className="text-xl font-semibold mb-4 text-gray-800">Contact Us</h3>
-        <input
-          type="text"
-          placeholder="Name"
-          className="w-full border p-2 mb-3 rounded"
-          value={formData.name}
-          onChange={e => setFormData({ ...formData, name: e.target.value })}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-2 mb-3 rounded"
-          value={formData.email}
-          onChange={e => setFormData({ ...formData, email: e.target.value })}
-        />
-        <textarea
-          placeholder="Message"
-          className="w-full border p-2 mb-3 rounded"
-          value={formData.message}
-          onChange={e => setFormData({ ...formData, message: e.target.value })}
-        />
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 font-semibold">
-          Send
-        </button>
-      </form>
     </section>
   );
 }

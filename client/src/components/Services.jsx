@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
+  const navigate = useNavigate();
   const services = [
     {
       id: 'linux',
@@ -30,7 +32,81 @@ export default function Services() {
       tech: ['Terraform', 'Kubernetes', 'Docker'],
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg'
     },
+    {
+      id: 'jenkins',
+      name: 'Jenkins CI/CD',
+      desc: 'Automate build, test, and deployment pipelines.',
+      tech: ['Jenkins', 'Docker', 'Git', 'Kubernetes'],
+      icon: 'https://img.icons8.com/color/48/000000/jenkins.png'
+    },
+    {
+      id: 'ansible',
+      name: 'Ansible Automation',
+      desc: 'Configuration management and orchestration.',
+      tech: ['Ansible', 'Linux', 'AWS', 'Terraform'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg'
+    },
+    {
+      id: 'prometheus',
+      name: 'Monitoring & Alerting',
+      desc: 'Application and infrastructure monitoring.',
+      tech: ['Prometheus', 'Grafana', 'Kubernetes'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg'
+    },
+    {
+      id: 'aws',
+      name: 'AWS Cloud Services',
+      desc: 'Cloud infrastructure setup and management.',
+      tech: ['AWS', 'Terraform', 'Linux', 'Docker'],
+      icon: 'https://img.icons8.com/color/48/000000/amazon-web-services.png'
+    },
+    {
+      id: 'gitlab',
+      name: 'GitLab CI/CD',
+      desc: 'Automate and manage your CI/CD pipelines with GitLab.',
+      tech: ['GitLab', 'CI/CD', 'Docker'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg'
+    },
+    {
+      id: 'azure',
+      name: 'Azure DevOps',
+      desc: 'End-to-end DevOps solutions on Microsoft Azure.',
+      tech: ['Azure', 'Pipelines', 'Repos', 'Boards'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg'
+    },
+    {
+      id: 'grafana',
+      name: 'Grafana Dashboards',
+      desc: 'Custom dashboards for monitoring and visualization.',
+      tech: ['Grafana', 'Prometheus', 'Kubernetes'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg'
+    },
+    {
+      id: 'sonarqube',
+      name: 'SonarQube Code Quality',
+      desc: 'Automated code analysis and quality gates for CI/CD.',
+      tech: ['SonarQube', 'Jenkins', 'GitLab'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg'
+    },
+    {
+      id: 'vault',
+      name: 'HashiCorp Vault',
+      desc: 'Secrets management and encryption for DevOps workflows.',
+      tech: ['Vault', 'Terraform', 'Kubernetes'],
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vault/vault-original.svg'
+    },
+    {
+      id: 'nginx',
+      name: 'Nginx Reverse Proxy',
+      desc: 'Load balancing, SSL termination, and reverse proxy setup.',
+      tech: ['Nginx', 'SSL', 'Docker'],
+      icon: 'https://img.icons8.com/color/48/000000/nginx.png'
+    },
   ];
+
+  const handleContactClick = (serviceName) => {
+    navigate(`/contact?service=${encodeURIComponent(serviceName)}`);
+  };
 
   return (
     <section id="services" className="p-8 bg-white">
@@ -57,10 +133,16 @@ export default function Services() {
               href="https://github.com/Fir3eye/sendevops.git"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold transition"
+              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold transition"
             >
               <span role="img" aria-label="live">🔗</span> View Code
             </a>
+            <button
+              onClick={() => handleContactClick(s.name)}
+              className="mt-2 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold transition"
+            >
+              <span role="img" aria-label="contact">📩</span> Contact About This Service
+            </button>
           </div>
         ))}
       </div>

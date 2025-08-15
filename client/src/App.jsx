@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 
 export default function App() {
@@ -31,6 +32,8 @@ export default function App() {
           <Route path="/skills" element={<Skills />} />  
           <Route path="/Services" element={<Services />} /> 
           <Route path="/Projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+
         </Routes>
       </div>
     </Router>
