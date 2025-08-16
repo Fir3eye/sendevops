@@ -10,6 +10,8 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import Testimonials from './components/Testimonials';
+
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
                 <Experience /> {/* Added Experience section */}
                 <Services />
                 <Projects />
+                <Testimonials/>
+                <Contact/>
                 <Footer />
               </>
             }
@@ -36,6 +40,7 @@ export default function App() {
           <Route path="/projects" element={<Projects />} /> {/* Lowercase */}
           <Route path="/experience" element={<Experience />} /> {/* Optional page route */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/testimonials" element={<Testimonials />} /> {/* New Testimonials page */}
         </Routes>
       </div>
     </Router>

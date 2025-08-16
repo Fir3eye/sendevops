@@ -19,13 +19,12 @@ const clients = [
   { name: 'AWS', img: 'https://www.pngall.com/wp-content/uploads/13/AWS-Logo-PNG-Images.png' },
   { name: 'Azure', img: 'https://www.pngmart.com/files/23/Azure-Logo-PNG-Clipart.png' },
   { name: 'GCP', img: 'https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-goog/events/google-cloud-platform-gcp-small-square%20thumbnail.png' },
-
 ];
 
 export default function Partners() {
   return (
     <section className="p-8 bg-white">
-      <h3 className="text-center text-2xl font-bold mb-6">Skills</h3>
+      <h3 className="text-center text-3xl font-bold mb-10">🛠️ My Skills</h3>
       <div className="overflow-hidden">
         <div className="flex items-center space-x-12 animate-scroll-x">
           {clients.map((client, idx) => (
