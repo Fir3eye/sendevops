@@ -24,7 +24,11 @@ const clients = [
 export default function Partners() {
   return (
     <section className="p-8 bg-white">
-      <h3 className="text-center text-3xl font-bold mb-10">🛠️ My Skills</h3>
+      {/* Fixed heading color */}
+      <h3 className="text-center text-3xl font-bold mb-10 text-gray-900">
+        🛠️ My Skills
+      </h3>
+
       <div className="overflow-hidden">
         <div className="flex items-center space-x-12 animate-scroll-x">
           {clients.map((client, idx) => (
@@ -35,7 +39,7 @@ export default function Partners() {
                 className="w-24 h-12 object-contain mb-2 rounded shadow bg-white"
                 onError={e => { e.target.src = 'https://via.placeholder.com/96x48?text=Logo'; }}
               />
-              <span className="text-sm font-medium">{client.name}</span>
+              <span className="text-sm font-medium text-gray-700">{client.name}</span>
             </div>
           ))}
           {/* Duplicate for seamless loop */}
@@ -47,11 +51,12 @@ export default function Partners() {
                 className="w-24 h-12 object-contain mb-2 rounded shadow bg-white"
                 onError={e => { e.target.src = 'https://via.placeholder.com/96x48?text=Logo'; }}
               />
-              <span className="text-sm font-medium">{client.name}</span>
+              <span className="text-sm font-medium text-gray-700">{client.name}</span>
             </div>
           ))}
         </div>
       </div>
+
       <style>
         {`
           @keyframes scroll-x {

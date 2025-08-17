@@ -1,22 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; 
-import logo from "../assets/logo/logo.png";
+import { Menu, X } from "lucide-react"; // install: npm i lucide-react
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="bg-blue-900 text-white py-4 px-8 flex items-center justify-between relative">
-      {/* Logo + Name */}
-      <Link to="/" className="flex items-center space-x-2 text-2xl font-bold">
-        <img 
-          src={logo}   // ✅ imported logo used here
-          alt="SendDevOps Logo" 
-          className="w-10 h-10 rounded-full"
-        />
-        <span>SendDevOps</span>
-      </Link>
+      {/* Logo */}
+      <h1 className="text-2xl font-bold">SenDevOps</h1>
 
       {/* Desktop Nav */}
       <nav className="hidden md:flex items-center space-x-8">
@@ -25,14 +17,12 @@ export default function Header() {
         <Link to="/projects" className="hover:underline text-lg font-medium">Projects</Link>
         <Link to="/experience" className="hover:underline text-lg font-medium">Experience</Link>
         <Link to="/about" className="hover:underline text-lg font-medium">About</Link>
-
       </nav>
 
       {/* Mobile Menu Button */}
       <button
         className="md:hidden focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle menu"
       >
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>

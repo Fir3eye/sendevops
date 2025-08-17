@@ -180,20 +180,20 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative">
-      <h3 className="text-center text-3xl font-bold mb-10">🛠️ Our Services</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="services" className="p-8 bg-white">
+      <h3 className="text-center text-2xl font-bold mb-6">Our Services</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map(s => (
           <div
             key={s.id}
-            className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 p-6 rounded-2xl shadow-2xl flex flex-col items-start hover:scale-105 transition-transform duration-300"
+            className="bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 p-6 rounded-2xl shadow-lg flex flex-col items-start text-white"
           >
             <img
               src={s.icon}
               alt={`${s.name} Icon`}
               className="mb-4 w-14 h-14 object-contain rounded-lg bg-white p-2"
             />
-            <h4 className="font-bold text-xl mb-2">{s.name}</h4>
+            <h4 className="font-bold text-lg mb-2">{s.name}</h4>
             <p className="mb-2 text-gray-200">{s.desc}</p>
             <ul className="list-disc list-inside mb-4 text-gray-300">
               {s.points.map((point, idx) => (
