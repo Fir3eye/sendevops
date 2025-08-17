@@ -6,7 +6,6 @@ import Partners from './components/Partners';
 import Services from './components/Services';
 import Footer from './components/Footer';
 import About from './components/About';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
@@ -25,7 +24,6 @@ export default function App() {
               <>
                 <Hero />
                 <Partners />
-                <Experience /> {/* Added Experience section */}
                 <Services />
                 <Projects />
                 <Testimonials/>
@@ -35,7 +33,6 @@ export default function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />  
           <Route path="/services" element={<Services />} />  {/* Lowercase */}
           <Route path="/projects" element={<Projects />} /> {/* Lowercase */}
           <Route path="/experience" element={<Experience />} /> {/* Optional page route */}

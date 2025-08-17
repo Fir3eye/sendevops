@@ -51,14 +51,7 @@ const experiences = [
       "Collaborated with developers to ensure smooth deployments.",
       "Implemented monitoring and alerting with Grafana & Prometheus.",
     ],
-    tools: [
-      "Docker",
-      "Kubernetes",
-      "GitHub Actions",
-      "CI/CD",
-      "Grafana",
-      "Prometheus",
-    ],
+    tools: ["Docker", "Kubernetes", "GitHub Actions", "CI/CD", "Grafana", "Prometheus"],
     icon: "🚀",
   },
   {
@@ -80,10 +73,10 @@ export default function Experience() {
   return (
     <section className="py-16 px-6 md:px-20 bg-white text-gray-900">
       <h3 className="text-center text-4xl font-bold mb-14 flex justify-center items-center gap-2">
-        <Briefcase className="w-8 h-8 text-indigo-600" />
+        <Briefcase className="w-8 h-8 text-pink-500" />
         My Experience
       </h3>
-      <div className="relative border-l-4 border-indigo-400/60 max-w-4xl mx-auto">
+      <div className="relative border-l-4 border-pink-400/60 max-w-4xl mx-auto">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
@@ -97,7 +90,7 @@ export default function Experience() {
             <span className="absolute -left-11 top-4 text-3xl">{exp.icon}</span>
 
             {/* Job Role */}
-            <h4 className="text-xl font-semibold text-indigo-700 group-hover:text-indigo-800 transition">
+            <h4 className="text-xl font-semibold text-pink-600 group-hover:text-pink-700 transition">
               {exp.role}
             </h4>
 
@@ -118,7 +111,7 @@ export default function Experience() {
               {exp.tools.map((tool, i) => (
                 <span
                   key={i}
-                  className="bg-indigo-100 text-indigo-700 text-xs px-3 py-1 rounded-full flex items-center gap-1 hover:bg-indigo-200 transition"
+                  className="bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full flex items-center gap-1 hover:bg-pink-200 transition"
                 >
                   <Wrench className="w-3 h-3" /> {tool}
                 </span>
