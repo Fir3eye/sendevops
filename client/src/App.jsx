@@ -10,7 +10,8 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Testimonials from './components/Testimonials';
-
+import Blog from "./components/Blog"; // adjust path if needed
+import BlogDetails from "./components/BlogDetails";
 
 export default function App() {
   return (
@@ -38,6 +39,8 @@ export default function App() {
           <Route path="/experience" element={<Experience />} /> {/* Optional page route */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/testimonials" element={<Testimonials />} /> {/* New Testimonials page */}
+          <Route path='/blog' element={<Blog />} /> {/* New Blog page */}
+          <Route path="/blog/:id" element={<BlogDetails />} /> {/* ✅ new */}
         </Routes>
       </div>
     </Router>
