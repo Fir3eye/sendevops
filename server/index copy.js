@@ -3,9 +3,6 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const dotenv = require('dotenv');
-
-dotenv.config(); // Load .env file
 
 const app = express();
 app.use(cors());
@@ -13,11 +10,9 @@ app.use(express.json());
 
 const contactsFile = path.join(__dirname, 'contacts.json');
 
-// ================== CONTACT FORM ==================
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
   const entry = { name, email, message, date: new Date().toISOString() };
-
   let contacts = [];
   if (fs.existsSync(contactsFile)) {
     contacts = JSON.parse(fs.readFileSync(contactsFile));
@@ -28,16 +23,16 @@ app.post('/api/contact', async (req, res) => {
   // Send email
   try {
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or your provider
+      service: 'gmail', // or your email provider
       auth: {
-        user: process.env.EMAIL_USER,   // ✅ from .env
-        pass: process.env.EMAIL_PASS,   // ✅ from .env
+        user: 'sudheerkumar.sen1999@gmail.com', // replace with your email
+        pass: 'your-app-password',    // replace with your app password
       },
     });
 
     await transporter.sendMail({
       from: email,
-      to: process.env.EMAIL_USER, // ✅ goes to your inbox
+      to: 'sudheerkumar.sen1999@gmail.com', // your inbox
       subject: `New Contact Message from ${name}`,
       text: message,
       html: `<p><strong>Name:</strong> ${name}</p>
@@ -51,24 +46,4 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// ================== WHATSAPP ENCRYPTED API ==================
-app.get('/api/whatsapp', (req, res) => {
-  const number = process.env.WHATSAPP_NUMBER;
-  const defaultMsg = process.env.DEFAULT_MESSAGE || 'Hello! 👋';
-
-  if (!number) {
-    return res.status(500).json({ error: 'WhatsApp number not configured' });
-  }
-
-  // Only return number + message (not hardcoded in frontend)
-  res.json({
-    number,
-    message: defaultMsg,
-  });
-});
-
-// ================== SERVER START ==================
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () =>
-  console.log(`✅ Server running on http://localhost:${PORT}`)
-);
+app.listen(4000, () => console.log('Server running on http://localhost:4000'));

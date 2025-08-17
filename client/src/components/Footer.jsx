@@ -74,18 +74,6 @@ export default function Footer() {
         <a href="#" className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 hover:bg-blue-600 text-sm">↑ Back to Top</a>
       </div>
       {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/9175xxxxxx"
-        className="fixed bottom-8 right-8 z-50"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="https://img.icons8.com/color/48/000000/whatsapp.png"
-          alt="WhatsApp"
-          className="rounded-full shadow-lg"
-        />
-      </a>
     </footer>
   );
 }
