@@ -1,0 +1,9 @@
+/* src/components/whatsapp.css */
+
+.whatsapp-left {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;   /* 👈 moves it to left */
+  right: auto !important;  /* remove right stickiness */
+  z-index: 9999;
+}

@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Testimonials from './components/Testimonials';
+import WhatsAppChat from "./components/WhatsAppChat";
 
 
 export default function App() {
@@ -28,6 +29,8 @@ export default function App() {
                 <Projects />
                 <Testimonials/>
                 <Contact/>
+                <WhatsAppChat />
+   
                 <Footer />
               </>
             }
