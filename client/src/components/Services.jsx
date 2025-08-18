@@ -175,6 +175,47 @@ export default function Services() {
     }
   ];
 
+  const packages = [
+    {
+      title: "Starter Package",
+      price: "$299",
+      description: "Perfect for small businesses or startups looking to kickstart their DevOps journey.",
+      features: [
+        "Basic Infrastructure Setup (Cloud/On-Prem)",
+        "CI/CD Pipeline Setup",
+        "Monitoring & Alerts (Basic)",
+        "Monthly Support (10 Hours)"
+      ],
+      button: "Get Started",
+    },
+    {
+      title: "Professional Package",
+      price: "$599",
+      description: "Best for growing businesses that need advanced automation and scaling.",
+      features: [
+        "Complete Infrastructure Setup",
+        "Advanced CI/CD with Testing",
+        "Docker & Kubernetes Deployment",
+        "Monitoring & Logging Integration",
+        "Monthly Support (30 Hours)"
+      ],
+      button: "Choose Plan",
+    },
+    {
+      title: "Enterprise Package",
+      price: "$999",
+      description: "Designed for enterprises requiring full-scale DevOps management and dedicated support.",
+      features: [
+        "End-to-End DevOps Automation",
+        "Multi-Cloud & Hybrid Setup",
+        "Security & Compliance",
+        "24/7 Monitoring & Support",
+        "Dedicated DevOps Engineer"
+      ],
+      button: "Contact Us",
+    },
+  ];
+
   const handleContactClick = (serviceName) => {
     navigate(`/contact?service=${encodeURIComponent(serviceName)}`);
   };
@@ -222,6 +263,40 @@ export default function Services() {
           </div>
         ))}
       </div>
+
+      {/* Pricing Section */}
+      <div className="mt-20">
+        <h3 className="text-center text-3xl font-bold mb-10">💰 Pricing Plans</h3>
+        <div className="grid gap-8 md:grid-cols-3">
+          {packages.map((pack, index) => (
+            <div
+              key={index}
+              className="bg-white text-gray-800 shadow-lg rounded-2xl p-8 border border-gray-200 hover:shadow-2xl transition"
+            >
+              <h4 className="text-2xl font-semibold mb-4">{pack.title}</h4>
+              <p className="text-3xl font-bold text-indigo-600 mb-2">
+                {pack.price}
+              </p>
+              <p className="text-gray-600 mb-6">{pack.description}</p>
+              <ul className="mb-6 space-y-3 text-gray-700">
+                {pack.features.map((feature, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="text-green-500 mr-2">✔</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => handleContactClick(pack.title)}
+                className="w-full bg-indigo-600 text-white py-3 px-6 rounded-xl font-medium hover:bg-indigo-700 transition"
+              >
+                {pack.button}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
+

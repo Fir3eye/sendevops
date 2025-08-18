@@ -1,5 +1,5 @@
 import React from 'react';
-import './hero.css'; // We'll add background animation here
+import './hero.css'; // Background animation styles
 
 export default function Hero() {
   // Scroll to "Our Work" section
@@ -24,46 +24,68 @@ export default function Hero() {
       className="relative flex flex-col md:flex-row items-center justify-between p-6 sm:p-8 min-h-[80vh] animated-bg"
     >
       <div className="w-full md:w-2/3 space-y-4 sm:space-y-6 text-white z-10 text-center md:text-left">
+        {/* Headline */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2">
-          Welcome to <span className="text-yellow-400">SenDevOps</span>
+          Empower Your Business with <span className="text-yellow-400">DevOps Excellence</span>
         </h2>
+
+        {/* Subtext */}
         <p className="text-base sm:text-lg text-gray-200 mb-4">
-          Our training programs are designed with real-world scenarios to ensure you gain practical, job-ready skills.
+          We provide end-to-end DevOps & Cloud services to help startups and enterprises scale faster, 
+          reduce costs, and improve reliability.
         </p>
+
+        {/* Services Highlights */}
         <ul className="mb-6 space-y-2 text-sm sm:text-base">
           <li className="flex items-start sm:items-center gap-2">
             <span className="text-green-400 text-lg sm:text-xl">✔</span>
             <span>
-              <span className="font-bold">Expert-Led Training:</span> Learn from industry professionals with 35+ corporate projects.
+              <span className="font-bold">Cloud & Infrastructure Setup:</span> AWS, Azure, GCP, and Hybrid environments.
             </span>
           </li>
           <li className="flex items-start sm:items-center gap-2">
             <span className="text-green-400 text-lg sm:text-xl">✔</span>
             <span>
-              <span className="font-bold">Real-Time Projects:</span> End-to-end DevSecOps CICD projects and practical assignments.
+              <span className="font-bold">CI/CD Automation:</span> Jenkins, GitHub Actions, GitLab CI, ArgoCD pipelines.
             </span>
           </li>
           <li className="flex items-start sm:items-center gap-2">
             <span className="text-green-400 text-lg sm:text-xl">✔</span>
             <span>
-              <span className="font-bold">Certification:</span> Showcase your expertise with a course completion certificate.
+              <span className="font-bold">Monitoring & Security:</span> Zabbix, Prometheus, Grafana, DevSecOps practices.
+            </span>
+          </li>
+          <li className="flex items-start sm:items-center gap-2">
+            <span className="text-green-400 text-lg sm:text-xl">✔</span>
+            <span>
+              <span className="font-bold">Cost Optimization:</span> Optimize infrastructure for performance and savings.
             </span>
           </li>
         </ul>
+
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">
           <button
             className="px-6 sm:px-8 py-3 rounded font-semibold bg-gradient-to-r from-pink-500 to-yellow-400 text-white shadow-lg hover:scale-105 transition"
             onClick={handleLatestProjectsClick}
           >
-            Latest Projects
+            View Case Studies
           </button>
           <button
             className="px-6 sm:px-8 py-3 rounded font-semibold bg-gradient-to-r from-green-400 to-blue-500 text-white shadow-lg hover:scale-105 transition"
             onClick={handleServicesClick}
           >
-            Our Services
+            Explore Our Services
           </button>
+          <a
+            href="#contact"
+            className="px-6 sm:px-8 py-3 rounded font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg hover:scale-105 transition"
+          >
+            Book Free Consultation
+          </a>
         </div>
+
+        {/* Social Links */}
         <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
           <a
             href="https://github.com/Fir3eye"
@@ -97,3 +119,4 @@ export default function Hero() {
     </section>
   );
 }
+
