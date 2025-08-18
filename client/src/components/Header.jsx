@@ -12,10 +12,10 @@ export default function Header() {
       <Link to="/" className="flex items-center space-x-2 text-2xl font-bold">
         <img 
           src={logo}   // ✅ imported logo used here
-          alt="SendDevOps Logo" 
+          alt="SenDevOps Logo" 
           className="w-10 h-10 rounded-full"
         />
-        <span>SendDevOps</span>
+        <span>SenDevOps</span>
       </Link>
 
       {/* Desktop Nav */}
