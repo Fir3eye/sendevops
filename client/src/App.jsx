@@ -11,7 +11,19 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Testimonials from './components/Testimonials';
 import WhatsAppChat from "./components/WhatsAppChat";
+import ClientProjects from "./components/ClientProjects";  // ✅ keep only this
 
+// ✅ New component for Latest Projects
+function LatestProjects() {
+  return (
+    <div className="p-8 text-center">
+      <h1 className="text-3xl font-bold text-blue-700">Latest Projects</h1>
+      <p className="mt-4 text-gray-600">
+        Here are our most recent DevOps projects and case studies 🚀
+      </p>
+    </div>
+  );
+}
 
 export default function App() {
   return (
@@ -19,6 +31,7 @@ export default function App() {
       <div className="flex flex-col min-h-screen">
         <Header />
         <Routes>
+          {/* Home Page */}
           <Route
             path="/"
             element={
@@ -26,21 +39,26 @@ export default function App() {
                 <Hero />
                 <Partners />
                 <Services />
-                <Projects />
+                <ClientProjects/>
                 <Testimonials/>
-                <Contact/>
+                <About/>
+                <Contact />
                 <WhatsAppChat />
-   
                 <Footer />
               </>
             }
           />
+
+          {/* Other Pages */}
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />  {/* Lowercase */}
-          <Route path="/projects" element={<Projects />} /> {/* Lowercase */}
-          <Route path="/experience" element={<Experience />} /> {/* Optional page route */}
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/latest" element={<Projects />} /> {/* ✅ Reuse Projects grid */}
+          <Route path="/experience" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/testimonials" element={<Testimonials />} /> {/* New Testimonials page */}
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/client-projects" element={<ClientProjects />} />
+          <Route path="/projects/client" element={<ClientProjects />} /> {/* ✅ Client Projects */}
         </Routes>
       </div>
     </Router>

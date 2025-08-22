@@ -1,79 +1,97 @@
-import React from 'react';
+import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white p-8 mt-auto">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white px-8 py-12 mt-auto shadow-lg">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        
         {/* Address */}
         <div>
-          <h3 className="font-bold text-lg mb-2">
-            <span className="text-orange-400 mr-2">📍</span>Address:
+          <h3 className="font-semibold text-xl mb-3 text-orange-400 flex items-center">
+            📍 Address
           </h3>
-          <p>
-            Saraswati Nagar, Near Water Tank,<br />
-            Goragaon, Bhopal,<br />
-            Madhya Pradesh, 462044
+          <p className="text-gray-300 leading-relaxed">
+            Emaar Digital Green Tower-A, <br />
+            Sector 61, Gurugram, Haryana, 122018
           </p>
-          <div className="flex items-center mt-2 space-x-2">
-            <span>
-              <img src="https://img.icons8.com/color/24/000000/gmail.png" alt="Gmail" className="inline" />
-            </span>
-            <a href="mailto:info@sendevops.in" className="text-blue-400 hover:underline">info@sendevops.in</a>
+          <div className="mt-3 space-y-2">
+            <div className="flex items-center space-x-2">
+              <img src="https://img.icons8.com/color/24/000000/gmail.png" alt="Gmail" />
+              <a
+                href="mailto:info@sendevops.in"
+                className="text-blue-400 hover:text-blue-300 transition"
+              >
+                info@sendevops.in
+              </a>
+            </div>
+            <div className="flex items-center space-x-2">
+              <img src="https://img.icons8.com/color/24/000000/whatsapp.png" alt="WhatsApp" />
+              <a
+                href="https://wa.me/91826xxx823"
+                className="text-green-400 hover:text-green-300 transition"
+              >
+                +91 82690 2xxxx3
+              </a>
+            </div>
           </div>
-          <div className="flex items-center mt-2 space-x-2">
-            <span>
-              <img src="https://img.icons8.com/color/24/000000/whatsapp.png" alt="WhatsApp" className="inline" />
-            </span>
-            <a href="https://wa.me/918269028823" className="text-green-400 hover:underline">+91 82690 28823</a>
-          </div>
-          <p className="mt-2 text-sm">Office Hours: Mon–Sat, 10am – 7pm</p>
+          <p className="mt-3 text-sm text-gray-400">🕑 Mon–Sat, 10am – 7pm</p>
         </div>
+
         {/* About */}
         <div>
-          <h3 className="font-bold text-lg mb-2">About SenDevOps</h3>
-          <p>
-            SenDevOps empowers your business with innovative digital solutions, design, and technology.
+          <h3 className="font-semibold text-xl mb-3 text-orange-400">About SenDevOps</h3>
+          <p className="text-gray-300 leading-relaxed">
+            🚀 SenDevOps empowers businesses with innovative cloud, DevOps, 
+            and automation solutions to help you scale faster, smarter, and safer.
           </p>
         </div>
+
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold text-lg mb-2">Quick Links</h3>
-          <div className="grid grid-cols-2 gap-x-4">
-            <ul>
-              <li><a href="#" className="hover:underline">Home</a></li>
-              <li><a href="#" className="hover:underline">Services</a></li>
-              <li><a href="#" className="hover:underline">Careers</a></li>
-              <li><a href="#" className="hover:underline">Login</a></li>
+          <h3 className="font-semibold text-xl mb-3 text-orange-400">Quick Links</h3>
+          <div className="grid grid-cols-2 gap-x-6 text-gray-300">
+            <ul className="space-y-2">
+              <li><a href="#" className="hover:text-orange-400 transition">Home</a></li>
+              <li><a href="#" className="hover:text-orange-400 transition">Services</a></li>
+              <li><a href="#" className="hover:text-orange-400 transition">Careers</a></li>
+              <li><a href="#" className="hover:text-orange-400 transition">Login</a></li>
             </ul>
-            <ul>
-              <li><a href="#" className="hover:underline">About</a></li>
-              <li><a href="#" className="hover:underline">Our Work</a></li>
-              <li><a href="#" className="hover:underline">Contact</a></li>
-              <li><a href="#" className="hover:underline">Sign Up</a></li>
+            <ul className="space-y-2">
+              <li><a href="#" className="hover:text-orange-400 transition">About</a></li>
+              <li><a href="#" className="hover:text-orange-400 transition">Our Work</a></li>
+              <li><a href="#" className="hover:text-orange-400 transition">Contact</a></li>
             </ul>
           </div>
         </div>
+
         {/* Social Media */}
         <div>
-          <h3 className="font-bold text-lg mb-2">Social Media</h3>
-          <div className="flex space-x-3 mb-2">
-            <a href="#"><img src="https://img.icons8.com/color/32/000000/gmail.png" alt="Gmail" /></a>
-            <a href="#"><img src="https://img.icons8.com/color/32/000000/linkedin.png" alt="LinkedIn" /></a>
-            <a href="#"><img src="https://img.icons8.com/color/32/000000/whatsapp.png" alt="WhatsApp" /></a>
-            <a href="#"><img src="https://img.icons8.com/color/32/000000/instagram-new.png" alt="Instagram" /></a>
-            <a href="#"><img src="https://img.icons8.com/color/32/000000/facebook-new.png" alt="Facebook" /></a>
+          <h3 className="font-semibold text-xl mb-3 text-orange-400">Follow Us</h3>
+          <div className="flex space-x-4 mb-4">
+            <a href="#"><img src="https://img.icons8.com/color/32/000000/linkedin.png" alt="LinkedIn" className="hover:scale-110 transition" /></a>
+            <a href="#"><img src="https://img.icons8.com/color/32/000000/whatsapp.png" alt="WhatsApp" className="hover:scale-110 transition" /></a>
+            <a href="#"><img src="https://img.icons8.com/color/32/000000/instagram-new.png" alt="Instagram" className="hover:scale-110 transition" /></a>
+            <a href="#"><img src="https://img.icons8.com/color/32/000000/facebook-new.png" alt="Facebook" className="hover:scale-110 transition" /></a>
           </div>
-          <div className="flex space-x-4 text-sm">
-            <a href="#" className="hover:underline">Privacy Policy</a>
-            <a href="#" className="hover:underline">Terms & Conditions</a>
+          <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+            <a href="#" className="hover:text-orange-400 transition">Privacy Policy</a>
+            <a href="#" className="hover:text-orange-400 transition">Terms & Conditions</a>
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-700 mt-8 pt-4 flex flex-col items-center">
-        <p className="text-center text-sm">&copy; 2025 SenDevOps. All rights reserved.</p>
-        <a href="#" className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 hover:bg-blue-600 text-sm">↑ Back to Top</a>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700 mt-10 pt-4 flex flex-col items-center">
+        <p className="text-gray-400 text-sm">
+          © {new Date().getFullYear()} <span className="text-orange-400">SenDevOps</span>. All rights reserved.
+        </p>
+        <a
+          href="#"
+          className="mt-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-5 py-2 rounded-full text-sm shadow-md hover:scale-105 transition"
+        >
+          ↑ Back to Top
+        </a>
       </div>
-      {/* WhatsApp Floating Button */}
     </footer>
   );
 }
