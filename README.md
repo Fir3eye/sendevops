@@ -10,3 +10,14 @@ Version 1.2
 <img width="1901" height="953" alt="Screenshot 2025-08-23 002917" src="https://github.com/user-attachments/assets/f1b85240-1b81-41fd-a8f6-235c95f6191d" />
 
 
+-- Create database
+CREATE DATABASE sendevops;
+
+-- Create user
+CREATE USER 'lead'@'localhost' IDENTIFIED BY 'dfdksjdKKSd';
+
+-- Grant privileges only on sendevops database
+GRANT ALL PRIVILEGES ON sendevops.* TO 'lead'@'localhost' WITH GRANT OPTION;
+
+-- Apply changes
+FLUSH PRIVILEGES;

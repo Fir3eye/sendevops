@@ -27,7 +27,7 @@ export default function About() {
             Learn with Industry Experts in SenDevOps
           </h1>
           <p className="text-gray-200 text-lg mb-4">
-            Welcome to Devops Shack, your go-to destination for mastering
+            Welcome to Sen DevOps, your go-to destination for mastering
             DevSecOps & Cloud DevOps. Our platform empowers individuals to excel
             in the dynamic world of technology through comprehensive courses
             designed for all skill levels.

@@ -1,34 +1,33 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
-const nodemailer = require('nodemailer');
-const dotenv = require('dotenv');
-const mysql = require('mysql2/promise');   // ✅ MySQL driver
+const express = require("express");
+const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+const mysql = require("mysql2/promise");
 
-dotenv.config(); // Load .env file
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const contactsFile = path.join(__dirname, 'contacts.json');
+const contactsFile = path.join(__dirname, "contacts.json");
 
 // ================== MYSQL CONNECTION ==================
 let pool;
 (async () => {
   try {
     pool = await mysql.createPool({
-      host: process.env.DB_HOST || 'localhost',
-      user: process.env.DB_USER || 'test',  // ✅ Use test user from .env
-      password: process.env.DB_PASS || '',
-      database: process.env.DB_NAME || 'sendevops',
+      host: process.env.DB_HOST || "localhost",
+      user: process.env.DB_USER || "test",
+      password: process.env.DB_PASS || "",
+      database: process.env.DB_NAME || "sendevops",
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
     });
 
-    // Create table if not exists
     await pool.query(`
       CREATE TABLE IF NOT EXISTS contacts (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,6 +44,11 @@ let pool;
   }
 })();
 
+// ================== TEST ROUTE ==================
+app.get("/api/contact/test", (req, res) => {
+  res.json({ success: true, message: "Contact API is working ✅" });
+});
+
 // ================== CONTACT FORM ==================
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
@@ -55,20 +59,21 @@ app.post('/api/contact', async (req, res) => {
 
   const entry = { name, email, message, date: new Date().toISOString() };
 
-  // Save to JSON (backup)
   try {
+    // Save to JSON
     let contacts = [];
     if (fs.existsSync(contactsFile)) {
       contacts = JSON.parse(fs.readFileSync(contactsFile, "utf-8"));
     }
     contacts.push(entry);
     fs.writeFileSync(contactsFile, JSON.stringify(contacts, null, 2));
+    console.log("📄 Saved to contacts.json");
   } catch (fileErr) {
     console.error("❌ File Save Error:", fileErr.message);
   }
 
-  // Save to MySQL
   try {
+    // Save to MySQL
     if (pool) {
       await pool.query(
         'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
@@ -78,12 +83,14 @@ app.post('/api/contact', async (req, res) => {
     }
   } catch (dbErr) {
     console.error("❌ MySQL Insert Error:", dbErr.message);
+    // Don't crash → respond with error
+    return res.status(500).json({ success: false, error: "Database error" });
   }
 
-  // Send email
   try {
+    // Send email
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or your provider (change if needed)
+      service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -91,8 +98,8 @@ app.post('/api/contact', async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,   // ✅ must be your account, not user's email
-      replyTo: email,                 // ✅ user email goes here
+      from: process.env.EMAIL_USER,
+      replyTo: email,
       to: process.env.EMAIL_USER,
       subject: `New Contact Message from ${name}`,
       text: message,
@@ -101,28 +108,31 @@ app.post('/api/contact', async (req, res) => {
              <p><strong>Message:</strong><br/>${message}</p>`,
     });
 
-    res.json({ success: true });
+    console.log("📧 Email sent");
   } catch (error) {
     console.error("❌ Email Error:", error.message);
-    res.status(500).json({ success: false, error: "Email not sent" });
+    // Still return success (optional)
+    return res.status(500).json({ success: false, error: "Email not sent" });
   }
+
+  // ✅ Always send response at the end
+  res.json({ success: true, message: "Contact saved successfully ✅" });
 });
 
+
 // ================== WHATSAPP ENCRYPTED API ==================
-app.get('/api/whatsapp', (req, res) => {
+app.get("/api/whatsapp", (req, res) => {
   const number = process.env.WHATSAPP_NUMBER;
-  const defaultMsg = process.env.DEFAULT_MESSAGE || 'Hello! 👋';
+  const defaultMsg = process.env.DEFAULT_MESSAGE || "Hello! 👋";
 
   if (!number) {
-    return res.status(500).json({ error: 'WhatsApp number not configured' });
+    return res.status(500).json({ error: "WhatsApp number not configured" });
   }
 
   res.json({ number, message: defaultMsg });
 });
 
 // ================== SERVER START ==================
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () =>
-  console.log(`✅ Server running on http://localhost:${PORT}`)
-);
-
+app.listen(4000, "0.0.0.0", () => {
+  console.log("✅ Server running on http://localhost:4000");
+});

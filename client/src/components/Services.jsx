@@ -246,14 +246,14 @@ export default function Services() {
                 <span key={tool} className="bg-blue-900 text-blue-200 px-3 py-1 rounded-full text-xs font-semibold">{tool}</span>
               ))}
             </div>
-            <a
+            {/* <a
               href="https://github.com/Fir3eye/sendevops.git"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold transition"
             >
               🔗 View Code
-            </a>
+            </a> */}
             <button
               onClick={() => handleContactClick(s.name)}
               className="mt-2 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold transition"
